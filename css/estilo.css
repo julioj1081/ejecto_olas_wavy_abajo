@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo{
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    background: rgb(206, 206, 206);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr 1/3fr;
+}
+section h2{
+    position: relative;
+    font-size: 3.5rem;
+    color: black;
+    z-index: 2;
+    grid-row: 1/3;
+    grid-column: 2;
+    margin: auto;
+    text-align: center;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+section .hola{
+    grid-row: 1/3;
+    grid-column: 2;
+    text-align: start;
+    margin: 5em;
+    color: black;
+    font-size: 1.5em;
+}
+
+nav{
+    height: 10vh;
+    background: #343a40!important;
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+}
+.nav-links li a{
+    text-decoration: none;
+    color: white;
+}
+.wavy{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color:  #343a40!important;
+    grid-row: 3/4;
+    grid-column: 1/3;
+}
+.wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../img/wave.png');
+    background-size: 1000px 100px;
+
+}
+.wave.wave1{
+    animation: animacion 30s linear infinite;
+    opacity: 1;
+    z-index: 1000;
+    animation-delay: 0s;
+    bottom: 10px;
+}
+.wave.wave2{
+    animation: animacion2 15s linear infinite;
+    opacity: 0.5;
+    z-index: 999;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+.wave.wave3{
+    animation: animacion3 5s linear infinite;
+    opacity: 0.5;
+    z-index: 998;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+@keyframes animacion{
+    0%{
+        background-position-x:0;
+    }100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animacion2{
+    0%{
+        background-position-x:0;
+    }100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animacion3{
+    0%{
+        background-position-x:0;
+    }100%{
+        background-position-x: 1000px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .logo{
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        font-size: 3em;
+        color: rgb(255, 255, 255);
+        z-index: 2;
+    }
+
+    .line{
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 5px;
+    }
+    nav{
+        position: relative;
+    }
+    .hamburger{
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+    }
+    .nav-links{
+        position: fixed;
+        background: rgb(88, 83, 83);
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(100px at 90% -20%);
+        -webkit-clip-path:circle(100px at 90% -20%);
+        transition: all 2s ease-in-out;
+        pointer-events: none;
+    }
+    .nav-links.open{
+        pointer-events: all;
+        clip-path: circle(1100px at 90% -20%);
+        -webkit-clip-path:circle(1100px at 90% -20%);
+    }
+    
+    section h2{
+        position: relative;
+        font-size: 3.5rem;
+        color: black;
+        z-index: 2;
+        grid-row:1/3;
+        grid-column: 1/3;
+        margin: auto;
+        opacity: 1;
+        transition: all 1s ease-in-out;
+    }
+    section .hola{
+        pointer-events: none;
+        margin: 5em;
+        grid-row:1/3;
+        grid-column: 1/3;
+    }
+    section h2.active{
+        opacity: 0;
+    }
+    .wavy{
+        opacity: 1;
+        transition: all 1s ease-in-out;
+    }
+    .wavy.active{
+        display: none;
+    }
+
+
+    .nav-links li{
+        opacity: 1;
+    }
+    .nav-links li a{
+        font-size: 35px;
+    }
+    
+}
